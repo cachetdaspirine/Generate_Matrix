@@ -7,6 +7,7 @@ sys.path.append('/home/hleroy/Simulation/Extra_Module_py')
 import RandSyst as RSys
 import Shape as Sh
 
+Name = str(sys.argv[1])
 
 def DistanceFromEdge(Array):
     Res = dict()
@@ -30,7 +31,7 @@ def DistanceFromEdge(Array):
 def MeasureL(Mc,rho0):
     Array = Sh.Parallel(18,ParticleType='Hexagon')
     S = RSys.System(Mc,rho0,Array)
-    S.PrintPerSite(Extended=True)
+    S.PrintPerSite(Name = SimName,Extended=True)
     EnergyData = np.loadtxt('NoName.txt')
     Ranking = DistanceFromEdge(Array)
     os.system('rm NoName.txt')
