@@ -9,4 +9,4 @@ cd /home/hleroy/Simulation/Generate_Matrix
 #cd $PBS_O_WORKDIR
 
 #on lance le calcul
-python3 Generate_Matrix.py
+python3 Generate_Matrix.py $1
