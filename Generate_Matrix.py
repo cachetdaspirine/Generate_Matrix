@@ -9,7 +9,7 @@ sys.path.append('/home/hleroy/Simulation/Extra_Module_py')
 import RandomParticleFunctions_v4 as RPF
 import MeasurePoisson as MP
 file = open('Matrix.data','ab')
-Nstat = 100000
+Nstat = 100
 for i in range(Nstat):
 
     Mc,rho0,e1,e2,seed = RPF.RandomParticle()
