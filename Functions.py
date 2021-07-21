@@ -18,7 +18,7 @@ def DistanceFromEdge(Array):
     while Index.__len__()!=0:
         toremove=set()
         for ij in Index:
-            if Sh.Get_Neighbors(box,ij,Free=True,ParticleType='Hexagon').__len__()!=0:
+            if Sh.Get_Neighbors(box,ij,Free=True,ParticleType='Hexagon').__len__()!=0 or Sh.Get_Neighbors(box,ij,Border=True,ParticleType='Hexagon').__len__()!=0:
                 Res[ij] = ind
                 toremove.add(ij)
         #print(toremove)
