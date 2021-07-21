@@ -9,7 +9,7 @@ sys.path.append('/home/hleroy/Simulation/Extra_Module_py')
 import RandomParticleFunctions_v4 as RPF
 import MeasurePoisson as MP
 file = open('Matrix.data','ab')
-Nstat = 100
+Nstat = 10
 for i in range(Nstat):
 
     Mc,rho0,e1,e2,seed = RPF.RandomParticle()
@@ -17,9 +17,9 @@ for i in range(Nstat):
     l4mu = MP.GetL4MU(Mc,rho0)
     lamb = MP.GetLambda(Mc,rho0)
     val,vect = np.linalg.eigh(Mc)
+    l0,Jth,Ebulk = MeasureL(Mc,rho0)
 
-
-    data = np.array([np.sqrt(0.5*(l4mu+lamb)/(2*val[0])),MeasureL(Mc,rho0),seed])
+    data = np.array([np.sqrt(0.5*(l4mu+lamb)/(2*val[0])),l0,Jth,Ebulk,seed])
 
     np.savetxt(file,data[np.newaxis,:])
 file.close()

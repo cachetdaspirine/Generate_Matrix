@@ -29,8 +29,8 @@ def DistanceFromEdge(Array):
         ind+=1
     return Res
 def MeasureL(Mc,rho0):
-    #Array = Sh.Parallel(18,ParticleType='Hexagon')
-    Array = Sh.Fiber(10,50,ParticleType='Hexagon')
+    Array = Sh.Parallel(18,ParticleType='Hexagon')
+    #Array = Sh.Fiber(10,50,ParticleType='Hexagon')
     S = RSys.System(Mc,rho0,Array)
     S.PrintPerSite(Name = Name,Extended=True)
     EnergyData = np.loadtxt(Name)
@@ -42,4 +42,4 @@ def MeasureL(Mc,rho0):
         Res[Ranking[(int(ligne[-2]),int(ligne[-1]))],1] += 1
     #Res = Res[1:]
     Res[:,0] = Res[:,0]/Res[:,1]
-    return sum((max(Res[:,0])-Res[:,0])/(max(Res[:,0])-min(Res[:,0])))
+    return sum((max(Res[:,0])-Res[:,0])/(max(Res[:,0])-min(Res[:,0]))), sum(max(Res[:,0])-Res[:,0]), max(Res[:,0])
